@@ -69,22 +69,15 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.tree.DefaultTreeModel;
 
-import net.sf.jtreemap.swing.ColorProvider;
-import net.sf.jtreemap.swing.JTreeMap;
-import net.sf.jtreemap.swing.SplitByNumber;
-import net.sf.jtreemap.swing.SplitBySlice;
-import net.sf.jtreemap.swing.SplitBySortedWeight;
-import net.sf.jtreemap.swing.SplitByWeight;
-import net.sf.jtreemap.swing.SplitSquarified;
-import net.sf.jtreemap.swing.SplitStrategy;
-import net.sf.jtreemap.swing.TreeMapNode;
+import net.sf.jtreemap.swing.*;
+import net.sf.jtreemap.swing.JXTreeMap;
 import net.sf.jtreemap.swing.provider.HSBTreeMapColorProvider;
 import net.sf.jtreemap.swing.provider.RandomColorProvider;
 import net.sf.jtreemap.swing.provider.RedGreenColorProvider;
 import net.sf.jtreemap.swing.provider.ZoomPopupMenu;
 
 /**
- * Test of JTreeMap
+ * Test of JXTreeMap
  * 
  * @author Laurent Dutheil
  */
@@ -107,7 +100,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
 
     private static final String OPEN_XML_FILE = "Open Xml File";
 
-    private final JTreeMap jTreeMap;
+    private final JXTreeMap jTreeMap;
 
     private JTree treeView = new JTree();
 
@@ -141,7 +134,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
     public JTreeMapExample() {
         root = DemoUtil.buildDemoRoot();
 
-        jTreeMap = new JTreeMap(this.root, treeView);
+        jTreeMap = new JXTreeMap(this.root, treeView);
         jTreeMap.setFont(new Font(null, Font.BOLD, DEFAULT_FONT_SIZE));
         jTreeMap.setPreferredSize(new Dimension(APPLICATION_WIDTH, APPLICATION_HEIGHT));
         jTreeMap.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
@@ -153,7 +146,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
          * the same level
          */
         // TreeMapNode.setBorder(5);
-        // add a popup menu to zoom the JTreeMap
+        // add a popup menu to zoom the JXTreeMap
         new ZoomPopupMenu(this.jTreeMap);
 
         // init GUI
@@ -294,7 +287,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
     }
 
     /**
-     * Add a splitPane with a treeview on the left and the JTreeMap on the right
+     * Add a splitPane with a treeview on the left and the JXTreeMap on the right
      */
     private void addPanelCenter(final Container parent) {
         final JSplitPane splitPaneCenter = new JSplitPane();
@@ -313,7 +306,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
         treeView.addTreeSelectionListener(new TreeSelectionListener() {
             public void valueChanged(final TreeSelectionEvent e) {
                 // for each selected elements ont the treeView, we zoom the
-                // JTreeMap
+                // JXTreeMap
                 TreeMapNode dest = (TreeMapNode) JTreeMapExample.this.treeView.getLastSelectedPathComponent();
 
                 // if the element is a leaf, we select the parent
@@ -488,7 +481,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
      * @throws Exception
      */
     private void initGUI() throws Exception {
-        setTitle("JTreeMap Example");
+        setTitle("JXTreeMap Example");
 
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -502,7 +495,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
 
         // panel to choose the strategy
         addPanelNorth(this.getContentPane());
-        // splitPane with treeView on the left and JTreeMap on the right
+        // splitPane with treeView on the left and JXTreeMap on the right
         addPanelCenter(this.getContentPane());
         // panel to choose the color provider
         addPanelSouth(this.getContentPane());
@@ -590,7 +583,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

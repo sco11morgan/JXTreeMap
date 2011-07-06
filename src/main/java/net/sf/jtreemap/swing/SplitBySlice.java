@@ -83,7 +83,7 @@ public class SplitBySlice extends SplitStrategy {
         }
 
         // Because of the Math.round(), we adjust the last element to fit the
-        // correctly the JTreeMap
+        // correctly the JXTreeMap
         if (!v.isEmpty()) {
             final TreeMapNode node = v.lastElement();
             if (vertical && h0 != offset) {
@@ -152,7 +152,7 @@ public class SplitBySlice extends SplitStrategy {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

@@ -38,14 +38,11 @@ import java.util.Enumeration;
 
 import javax.swing.JPanel;
 
-import net.sf.jtreemap.swing.ColorProvider;
-import net.sf.jtreemap.swing.DefaultValue;
-import net.sf.jtreemap.swing.JTreeMap;
-import net.sf.jtreemap.swing.TreeMapNode;
-import net.sf.jtreemap.swing.Value;
+import net.sf.jtreemap.swing.*;
+import net.sf.jtreemap.swing.JXTreeMap;
 
 /**
- * An HSB color space color provider for JTreeMap. Uses a specified function to
+ * An HSB color space color provider for JXTreeMap. Uses a specified function to
  * map the values onto the HSB color space. The default is a linear function,
  * but in my experience one of the logarithmic ones works best for this color
  * space.
@@ -71,7 +68,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * @param treeMap
      * @param color
      */
-    public HSBTreeMapColorProvider(final JTreeMap treeMap, final Color color) {
+    public HSBTreeMapColorProvider(final JXTreeMap treeMap, final Color color) {
         this(treeMap, ColorDistributionTypes.Linear, color, color);
     }
 
@@ -80,7 +77,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * @param colorDistribution
      * @param color
      */
-    public HSBTreeMapColorProvider(final JTreeMap treeMap, final ColorDistributionTypes colorDistribution, final Color color) {
+    public HSBTreeMapColorProvider(final JXTreeMap treeMap, final ColorDistributionTypes colorDistribution, final Color color) {
         this(treeMap, colorDistribution, color, color);
     }
 
@@ -89,7 +86,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * @param positiveColor
      * @param negativeColor
      */
-    public HSBTreeMapColorProvider(final JTreeMap treeMap, final Color positiveColor, final Color negativeColor) {
+    public HSBTreeMapColorProvider(final JXTreeMap treeMap, final Color positiveColor, final Color negativeColor) {
         this(treeMap, ColorDistributionTypes.Linear, positiveColor, negativeColor);
     }
 
@@ -99,7 +96,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * @param positiveColor
      * @param negativeColor
      */
-    public HSBTreeMapColorProvider(final JTreeMap treeMap, final ColorDistributionTypes colorDistribution, final Color positiveColor, final Color negativeColor) {
+    public HSBTreeMapColorProvider(final JXTreeMap treeMap, final ColorDistributionTypes colorDistribution, final Color positiveColor, final Color negativeColor) {
         super();
         jTreeMap = treeMap;
         this.colorDistribution = colorDistribution;
@@ -111,7 +108,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * @param hue
      * @param saturation
      */
-    public HSBTreeMapColorProvider(final JTreeMap treeMap, final float hue, final float saturation) {
+    public HSBTreeMapColorProvider(final JXTreeMap treeMap, final float hue, final float saturation) {
         this(treeMap, ColorDistributionTypes.Linear, hue, saturation, hue, saturation);
     }
 
@@ -121,7 +118,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * @param hue
      * @param saturation
      */
-    public HSBTreeMapColorProvider(final JTreeMap treeMap, final ColorDistributionTypes colorDistribution, final float hue, final float saturation) {
+    public HSBTreeMapColorProvider(final JXTreeMap treeMap, final ColorDistributionTypes colorDistribution, final float hue, final float saturation) {
         this(treeMap, colorDistribution, hue, saturation, hue, saturation);
     }
 
@@ -132,7 +129,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * @param negativeHue
      * @param negativeSaturation
      */
-    public HSBTreeMapColorProvider(final JTreeMap treeMap, final float positiveHue, final float positiveSaturation, final float negativeHue,
+    public HSBTreeMapColorProvider(final JXTreeMap treeMap, final float positiveHue, final float positiveSaturation, final float negativeHue,
             final float negativeSaturation) {
         this(treeMap, ColorDistributionTypes.Linear, positiveHue, positiveSaturation, negativeHue, negativeSaturation);
     }
@@ -145,7 +142,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * @param negativeHue
      * @param negativeSaturation
      */
-    public HSBTreeMapColorProvider(final JTreeMap treeMap, final ColorDistributionTypes colorDistribution, final float positiveHue,
+    public HSBTreeMapColorProvider(final JXTreeMap treeMap, final ColorDistributionTypes colorDistribution, final float positiveHue,
             final float positiveSaturation, final float negativeHue, final float negativeSaturation) {
         super();
         jTreeMap = treeMap;
@@ -285,7 +282,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
      * Set the max and the min values in the tree map
      * 
      * @param root
-     *            root of the JTreeMap
+     *            root of the JXTreeMap
      */
     private void setValues(final TreeMapNode root) {
         if (root.isLeaf()) {
@@ -332,7 +329,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
         }
     }
 
-    private final JTreeMap jTreeMap;
+    private final JXTreeMap jTreeMap;
 
     private JPanel legend;
 
@@ -398,7 +395,7 @@ public class HSBTreeMapColorProvider extends ColorProvider {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

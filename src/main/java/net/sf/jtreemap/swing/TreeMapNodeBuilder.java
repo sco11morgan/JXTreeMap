@@ -35,7 +35,7 @@ package net.sf.jtreemap.swing;
 import java.io.Serializable;
 
 /**
- * Tree builder for a JTreeMap.
+ * Tree builder for a JXTreeMap.
  * 
  * @author Laurent Dutheil
  */
@@ -106,7 +106,7 @@ public class TreeMapNodeBuilder implements Serializable {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

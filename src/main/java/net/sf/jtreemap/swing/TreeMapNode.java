@@ -38,7 +38,7 @@ import java.util.Vector;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
- * Node of a JTreeMap.<BR>
+ * Node of a JXTreeMap.<BR>
  * 
  * If the node is a branch, only the label is set.<BR>
  * If the node is a leaf, we need a label, a weight and a value.
@@ -101,7 +101,7 @@ public class TreeMapNode extends DefaultMutableTreeNode {
      * @param weight
      *            weight of the leaf (if negative, we take the absolute value).
      * @param value
-     *            Value associée à la feuille
+     *            Value associï¿½e ï¿½ la feuille
      */
     public TreeMapNode(final String label, final double weight, final Value value) {
         super(label);
@@ -385,7 +385,7 @@ public class TreeMapNode extends DefaultMutableTreeNode {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

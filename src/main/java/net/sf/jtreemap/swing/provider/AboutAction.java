@@ -14,10 +14,6 @@ class AboutAction extends AbstractAction {
     /**
      * Constructor
      * 
-     * @param node
-     *            where you want to zoom/unzoom
-     * @param icon
-     *            icon corresponding to the operation (zoom or unzoom)
      */
     public AboutAction() {
         super("About");
@@ -29,7 +25,7 @@ class AboutAction extends AbstractAction {
      * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     public void actionPerformed(final ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "<html>JTreeMap powered by <a href=\"http://www.ObjectLab.co.uk\">ObjectLab.co.uk</a></html>");
+        JOptionPane.showMessageDialog(null, "<html>JXTreeMap powered by <a href=\"http://www.ObjectLab.co.uk\">ObjectLab.co.uk</a></html>");
     }
 
     /*

@@ -35,7 +35,7 @@ package net.sf.jtreemap.swing;
 import java.text.NumberFormat;
 
 /**
- * class who can display the values of elements of a JTreeMap with pourcent
+ * class who can display the values of elements of a JXTreeMap with pourcent
  * 
  * @author Laurent Dutheil
  */
@@ -90,7 +90,7 @@ public class ValuePercent extends Value {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

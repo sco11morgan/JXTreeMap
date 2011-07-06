@@ -37,7 +37,7 @@ import javax.swing.JToolTip;
 /**
  * Interface used to build your own JToolTip for the jTreeMap.
  * 
- * @see net.sf.jtreemap.swing.JTreeMap#setToolTipBuilder(IToolTipBuilder)
+ * @see JXTreeMap#setToolTipBuilder(IToolTipBuilder)
  * @author Laurent DUTHEIL
  */
 public interface IToolTipBuilder {
@@ -51,7 +51,7 @@ public interface IToolTipBuilder {
     JToolTip getToolTip();
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

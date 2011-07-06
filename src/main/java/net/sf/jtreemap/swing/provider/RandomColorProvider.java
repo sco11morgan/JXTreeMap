@@ -42,7 +42,7 @@ import java.util.TreeMap;
 import javax.swing.JPanel;
 
 import net.sf.jtreemap.swing.ColorProvider;
-import net.sf.jtreemap.swing.JTreeMap;
+import net.sf.jtreemap.swing.JXTreeMap;
 import net.sf.jtreemap.swing.TreeMapNode;
 import net.sf.jtreemap.swing.Value;
 
@@ -73,7 +73,7 @@ public class RandomColorProvider extends ColorProvider {
 
     private JPanel legend;
 
-    private final JTreeMap jTreeMap;
+    private final JXTreeMap jTreeMap;
 
     /**
      * Constructor
@@ -81,7 +81,7 @@ public class RandomColorProvider extends ColorProvider {
      * @param jTreeMap
      *            jTreeMap to color
      */
-    public RandomColorProvider(final JTreeMap jTreeMap) {
+    public RandomColorProvider(final JXTreeMap jTreeMap) {
         this.jTreeMap = jTreeMap;
     }
 
@@ -175,7 +175,7 @@ public class RandomColorProvider extends ColorProvider {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

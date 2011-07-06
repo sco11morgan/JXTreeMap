@@ -40,13 +40,13 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPopupMenu;
 
-import net.sf.jtreemap.swing.JTreeMap;
+import net.sf.jtreemap.swing.JXTreeMap;
 import net.sf.jtreemap.swing.TreeMapNode;
 
 /**
- * PopupMenu which permits to zoom the JTreeMap<BR>
+ * PopupMenu which permits to zoom the JXTreeMap<BR>
  * The menuItems are the ancestors and the children of the displayed TreeMapNode
- * of the JTreeMap
+ * of the JXTreeMap
  * 
  * @author Laurent Dutheil
  */
@@ -63,7 +63,7 @@ public class ZoomPopupMenu extends JPopupMenu {
      */
     public static final Icon ZOOM_ICON = new ImageIcon(ZoomPopupMenu.class.getResource("icons/zoom.png"));
 
-    private final JTreeMap jTreeMap;
+    private final JXTreeMap jTreeMap;
 
     private transient final MouseListener mouseListener;
 
@@ -75,11 +75,11 @@ public class ZoomPopupMenu extends JPopupMenu {
      * @param jTreeMap
      *            jTreeMap which you want to add a zoom popup menu
      */
-    public ZoomPopupMenu(final JTreeMap jTreeMap) {
+    public ZoomPopupMenu(final JXTreeMap jTreeMap) {
         this(jTreeMap, false);
     }
 
-    public ZoomPopupMenu(final JTreeMap jTreeMap, final boolean showAbout) {
+    public ZoomPopupMenu(final JXTreeMap jTreeMap, final boolean showAbout) {
         super();
         this.jTreeMap = jTreeMap;
         this.mouseListener = new HandleClickMouse();
@@ -135,7 +135,7 @@ public class ZoomPopupMenu extends JPopupMenu {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

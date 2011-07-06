@@ -38,7 +38,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 import net.sf.jtreemap.swing.ColorProvider;
-import net.sf.jtreemap.swing.JTreeMap;
+import net.sf.jtreemap.swing.JXTreeMap;
 import net.sf.jtreemap.swing.TreeMapNode;
 import net.sf.jtreemap.swing.Value;
 
@@ -57,7 +57,7 @@ public class RedGreenColorProvider extends ColorProvider {
      */
     private static final long serialVersionUID = 5030306338780462810L;
 
-    private final JTreeMap jTreeMap;
+    private final JXTreeMap jTreeMap;
 
     private JPanel legend;
 
@@ -73,9 +73,9 @@ public class RedGreenColorProvider extends ColorProvider {
      * Constructor
      * 
      * @param jTreeMap
-     *            the JTreeMap to color
+     *            the JXTreeMap to color
      */
-    public RedGreenColorProvider(final JTreeMap jTreeMap) {
+    public RedGreenColorProvider(final JXTreeMap jTreeMap) {
         this.jTreeMap = jTreeMap;
     }
 
@@ -123,7 +123,7 @@ public class RedGreenColorProvider extends ColorProvider {
      * Set the max and the min value
      * 
      * @param root
-     *            root of the JTreeMap
+     *            root of the JXTreeMap
      */
     private void setMaxValue(final TreeMapNode root) {
         if (root.isLeaf()) {
@@ -203,7 +203,7 @@ public class RedGreenColorProvider extends ColorProvider {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

@@ -37,7 +37,7 @@ import java.io.Serializable;
 import javax.swing.JToolTip;
 
 /**
- * Default class to build the DefaultToolTip displayed by the JTreeMap.<BR>
+ * Default class to build the DefaultToolTip displayed by the JXTreeMap.<BR>
  * 
  * @see net.sf.jtreemap.swing.DefaultToolTip
  * @author Laurent DUTHEIL
@@ -47,7 +47,7 @@ public class DefaultToolTipBuilder implements IToolTipBuilder, Serializable {
     private static final long serialVersionUID = -1646772942428571187L;
 
     private JToolTip instance = null;
-    private final JTreeMap jTreeMap;
+    private final JXTreeMap jTreeMap;
     private final String weightPrefix;
     private final String valuePrefix;
     private final boolean showWeight;
@@ -56,9 +56,9 @@ public class DefaultToolTipBuilder implements IToolTipBuilder, Serializable {
      * Constructor.
      * 
      * @param jTreeMap
-     *            the linked JTreeMap
+     *            the linked JXTreeMap
      */
-    public DefaultToolTipBuilder(final JTreeMap jTreeMap, final String weightPrefix, final String valuePrefix, final boolean showWeight) {
+    public DefaultToolTipBuilder(final JXTreeMap jTreeMap, final String weightPrefix, final String valuePrefix, final boolean showWeight) {
         this.jTreeMap = jTreeMap;
         this.weightPrefix = weightPrefix;
         this.valuePrefix = valuePrefix;
@@ -78,7 +78,7 @@ public class DefaultToolTipBuilder implements IToolTipBuilder, Serializable {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

@@ -40,8 +40,8 @@ import java.util.Vector;
  * The elements are first sorted by descending weight. Then they are splitted in
  * 2 groups of equivalent weight.
  * <p>
- * The heaviest elements are on the top left of the JTreeMap. The lightest
- * elements are on the bottom right of the JTreeMap
+ * The heaviest elements are on the top left of the JXTreeMap. The lightest
+ * elements are on the bottom right of the JXTreeMap
  * 
  * @author Laurent Dutheil
  */
@@ -64,7 +64,7 @@ public class SplitBySortedWeight extends SplitStrategy {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

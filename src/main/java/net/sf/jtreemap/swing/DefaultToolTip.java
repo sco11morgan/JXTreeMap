@@ -50,7 +50,7 @@ public class DefaultToolTip extends JToolTip {
     private static final int DEFAULT_LABEL_SIZE = 12;
     private static final long serialVersionUID = -2492627777999093973L;
 
-    private final JTreeMap jTreeMap;
+    private final JXTreeMap jTreeMap;
     private final Font labelFont;
     private final Font valueFont;
     private final String weightPrefix;
@@ -63,7 +63,7 @@ public class DefaultToolTip extends JToolTip {
      * @param jTreeMap
      *            the jTreeMap who display the tooltip
      */
-    public DefaultToolTip(final JTreeMap jTreeMap, final String weightPrefix, final String valuePrefix, final boolean showWeight) {
+    public DefaultToolTip(final JXTreeMap jTreeMap, final String weightPrefix, final String valuePrefix, final boolean showWeight) {
         this.jTreeMap = jTreeMap;
         this.weightPrefix = weightPrefix;
         this.valuePrefix = valuePrefix;
@@ -104,7 +104,7 @@ public class DefaultToolTip extends JToolTip {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

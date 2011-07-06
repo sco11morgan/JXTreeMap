@@ -39,7 +39,7 @@ import javax.swing.JPanel;
 
 /**
  * Abstract class with the methods who attribute color to the elements of
- * JTreeMap.
+ * JXTreeMap.
  * 
  * @author Laurent DUTHEIL
  */
@@ -68,7 +68,7 @@ public abstract class ColorProvider implements Serializable {
     public abstract JPanel getLegendPanel();
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

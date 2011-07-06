@@ -37,7 +37,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 /**
- * Abtract class with the method which split the elements of a JTreeMap.
+ * Abtract class with the method which split the elements of a JXTreeMap.
  * <p>
  * The split is done by dichotomy. We split the elements in 2 groups with a
  * defined strategy (for example : take care of the weight of the elements)
@@ -70,7 +70,7 @@ public abstract class SplitStrategy implements Serializable {
     }
 
     /**
-     * split the elements of a JTreeMap.
+     * split the elements of a JXTreeMap.
      * 
      * @param v
      *            Vector with the elements to split (arg IN)
@@ -258,7 +258,7 @@ public abstract class SplitStrategy implements Serializable {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

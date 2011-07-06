@@ -9,14 +9,14 @@ import javax.swing.AbstractAction;
 import javax.swing.Icon;
 import javax.swing.tree.TreePath;
 
-import net.sf.jtreemap.swing.JTreeMap;
+import net.sf.jtreemap.swing.JXTreeMap;
 import net.sf.jtreemap.swing.TreeMapNode;
 
 public class ZoomAction extends AbstractAction {
     private static final long serialVersionUID = -8559400865920393294L;
 
     private final TreeMapNode node;
-    private final JTreeMap jTreeMap;
+    private final JXTreeMap jTreeMap;
 
     /**
      * Constructor
@@ -26,7 +26,7 @@ public class ZoomAction extends AbstractAction {
      * @param icon
      *            icon corresponding to the operation (zoom or unzoom)
      */
-    public ZoomAction(final JTreeMap jTreeMap, final TreeMapNode node, final Icon icon) {
+    public ZoomAction(final JXTreeMap jTreeMap, final TreeMapNode node, final Icon icon) {
         super(node.getLabel(), icon);
         this.node = node;
         this.jTreeMap = jTreeMap;

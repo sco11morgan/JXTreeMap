@@ -36,7 +36,7 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 
 /**
- * class who can display the values of elements of a JTreeMap with a formatter.
+ * class who can display the values of elements of a JXTreeMap with a formatter.
  * 
  * @author Benoit Xhenseval
  */
@@ -69,7 +69,7 @@ public class FormattedValue extends DefaultValue {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

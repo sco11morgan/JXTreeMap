@@ -63,7 +63,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultTreeModel;
 
 import net.sf.jtreemap.swing.ColorProvider;
-import net.sf.jtreemap.swing.JTreeMap;
+import net.sf.jtreemap.swing.JXTreeMap;
 import net.sf.jtreemap.swing.SplitBySortedWeight;
 import net.sf.jtreemap.swing.TreeMapNode;
 import net.sf.jtreemap.swing.provider.HSBTreeMapColorProvider;
@@ -72,7 +72,7 @@ import net.sf.jtreemap.swing.provider.RedGreenColorProvider;
 import net.sf.jtreemap.swing.provider.ZoomPopupMenu;
 
 /**
- * Test of JTreeMap in a JApplet.
+ * Test of JXTreeMap in a JApplet.
  * Accepts 3 parameters;
  * "dataFile" which is the path to data file relative to code base.
  * "dataFileType" is either dt3 or xml.
@@ -94,7 +94,7 @@ public class JTreeMapAppletExample extends JApplet {
 
     private static final long serialVersionUID = -8376357344981512167L;
 
-    private JTreeMap jTreeMap;
+    private JXTreeMap jTreeMap;
 
     private javax.swing.JPanel jContentPane = null;
 
@@ -174,7 +174,7 @@ public class JTreeMapAppletExample extends JApplet {
             root = DemoUtil.buildDemoRoot();
         }
 
-        this.jTreeMap = new JTreeMap(root, new SplitBySortedWeight(), treeView, weightPrefix, valuePrefix, showWeight);
+        this.jTreeMap = new JXTreeMap(root, new SplitBySortedWeight(), treeView, weightPrefix, valuePrefix, showWeight);
         this.jTreeMap.setFont(new Font(null, Font.BOLD, DEFAULT_FONT_SIZE));
 
         final String colourProvider = getParameter("colorProvider");
@@ -220,7 +220,7 @@ public class JTreeMapAppletExample extends JApplet {
             treeView.addTreeSelectionListener(new TreeSelectionListener() {
                 public void valueChanged(final TreeSelectionEvent e) {
                     // for each selected elements ont the treeView, we zoom the
-                    // JTreeMap
+                    // JXTreeMap
                     TreeMapNode dest = (TreeMapNode) JTreeMapAppletExample.this.treeView.getLastSelectedPathComponent();
 
                     // if the element is a leaf, we select the parent
@@ -369,7 +369,7 @@ public class JTreeMapAppletExample extends JApplet {
 
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.

@@ -61,13 +61,13 @@ import javax.swing.tree.TreePath;
  * Moreover, we can add a code color which makes it possible to introduce new
  * information into the representation of the tree structure.
  * <p>
- * So, in a JTreeMap, you can see the size and the value of an element in a
+ * So, in a JXTreeMap, you can see the size and the value of an element in a
  * tree.
  * 
  * @see net.sf.jtreemap.swing.TreeMapNode
  * @author Laurent Dutheil
  */
-public class JTreeMap extends JComponent {
+public class JXTreeMap extends JComponent {
     private static final long serialVersionUID = 7255952672238300249L;
     private static final int BORDER_FOR_FONT = 5;
     private static final int MAX_NUM_CHAR = 3;
@@ -102,7 +102,7 @@ public class JTreeMap extends JComponent {
     private final Zoom zoom = new Zoom();
 
     /**
-     * Constructor of JTreeMap. <BR>
+     * Constructor of JXTreeMap. <BR>
      * The chosen strategy is SplitSquarified. <BR>
      * The chosen color provider is UniqueColorProvider.
      * 
@@ -111,12 +111,12 @@ public class JTreeMap extends JComponent {
      * @param root
      *            the root of the tree to display
      */
-    public JTreeMap(final TreeMapNode root) {
+    public JXTreeMap(final TreeMapNode root) {
         this(root, new SplitSquarified(), null, null, false);
     }
 
     /**
-     * Constructor of JTreeMap. <BR>
+     * Constructor of JXTreeMap. <BR>
      * The chosen strategy is SplitSquarified. <BR>
      * The chosen color provider is UniqueColorProvider.
      * 
@@ -125,13 +125,13 @@ public class JTreeMap extends JComponent {
      * @param root the root of the tree to display
      * @param treeView The tree representation of the hierarchical data. 
      */
-    public JTreeMap(final TreeMapNode root, final JTree treeView) {
+    public JXTreeMap(final TreeMapNode root, final JTree treeView) {
         this(root, new SplitSquarified(), null, null, false);
         this.treeView = treeView;
     }
 
     /**
-     * Constructor of JTreeMap. <BR>
+     * Constructor of JXTreeMap. <BR>
      * The chosen color provider is UniqueColorProvider.
      * 
      * @see UniqueColorProvider
@@ -141,14 +141,14 @@ public class JTreeMap extends JComponent {
      *            the split strategy
      * @param treeView The tree representation of the hierarchical data. 
      */
-    public JTreeMap(final TreeMapNode root, final SplitStrategy strategy, final JTree treeView, final String weightPrefix, final String valuePrefix,
-            final boolean showWeight) {
+    public JXTreeMap(final TreeMapNode root, final SplitStrategy strategy, final JTree treeView, final String weightPrefix, final String valuePrefix,
+                     final boolean showWeight) {
         this(root, strategy, weightPrefix, valuePrefix, showWeight);
         this.treeView = treeView;
     }
 
     /**
-     * Constructor of JTreeMap. <BR>
+     * Constructor of JXTreeMap. <BR>
      * The chosen color provider is UniqueColorProvider.
      * 
      * @see UniqueColorProvider
@@ -157,7 +157,7 @@ public class JTreeMap extends JComponent {
      * @param strategy
      *            the split strategy
      */
-    public JTreeMap(final TreeMapNode root, final SplitStrategy strategy, final String weightPrefix, final String valuePrefix, final boolean showWeight) {
+    public JXTreeMap(final TreeMapNode root, final SplitStrategy strategy, final String weightPrefix, final String valuePrefix, final boolean showWeight) {
         // ToolTips appears without delay and stay as long as possible
         final ToolTipManager ttm = ToolTipManager.sharedInstance();
         ttm.setInitialDelay(0);
@@ -545,7 +545,7 @@ public class JTreeMap extends JComponent {
     }
 
     /**
-     * Zoom the JTreeMap to the dest node.
+     * Zoom the JXTreeMap to the dest node.
      * 
      * @param dest
      *            node we want to zoom
@@ -615,7 +615,7 @@ public class JTreeMap extends JComponent {
     }
 
     /**
-     * Class who zoom and unzoom the JTreeMap.
+     * Class who zoom and unzoom the JXTreeMap.
      * 
      * @author Laurent Dutheil
      */
@@ -636,11 +636,11 @@ public class JTreeMap extends JComponent {
          */
         public void execute(final TreeMapNode dest) {
             if (this.enable) {
-                JTreeMap.this.setActiveLeaf(null);
+                JXTreeMap.this.setActiveLeaf(null);
 
                 setNewDimension(dest);
 
-                JTreeMap.this.setDisplayedRoot(dest);
+                JXTreeMap.this.setDisplayedRoot(dest);
 
                 enable = false;
             }
@@ -671,11 +671,11 @@ public class JTreeMap extends JComponent {
             if (dest == null) {
                 return;
             }
-            dest.setX(JTreeMap.this.getRoot().getX());
-            dest.setY(JTreeMap.this.getRoot().getY());
+            dest.setX(JXTreeMap.this.getRoot().getX());
+            dest.setY(JXTreeMap.this.getRoot().getY());
 
-            final int rootWidth = JTreeMap.this.getRoot().getWidth();
-            final int rootHeight = JTreeMap.this.getRoot().getHeight();
+            final int rootWidth = JXTreeMap.this.getRoot().getWidth();
+            final int rootHeight = JXTreeMap.this.getRoot().getHeight();
 
             if (isKeepProportion()) {
                 final int destHeight = dest.getHeight();
@@ -702,7 +702,7 @@ public class JTreeMap extends JComponent {
          */
         public void undo() {
             if (!this.enable) {
-                JTreeMap.this.setDisplayedRoot(JTreeMap.this.getRoot());
+                JXTreeMap.this.setDisplayedRoot(JXTreeMap.this.getRoot());
                 enable = true;
             }
         }
@@ -717,7 +717,7 @@ public class JTreeMap extends JComponent {
     }
 }
 /*
- *                 ObjectLab is supporing JTreeMap
+ *                 ObjectLab is supporing JXTreeMap
  * 
  * Based in London, we are world leaders in the design and development 
  * of bespoke applications for the securities financing markets.
