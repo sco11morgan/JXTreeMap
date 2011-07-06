@@ -1,145 +1,158 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-   <modelVersion>4.0.0</modelVersion>
-   <groupId>net.sf.jtreemap</groupId>
-   <artifactId>jtreemap</artifactId>
-   <packaging>jar</packaging>
+    <groupId>com.github.captmorgan</groupId>
+    <artifactId>jxtreemap</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-   <!-- this is always the current version of the QALab plugin -->
-   <version>1.1.0</version>
+    <name>JXTreeMap</name>
+    <url>https://github.com/captmorgan/JXTreeMap</url>
+    <inceptionYear>2005</inceptionYear>
 
-   <name>JTreemap Built By Maven 2</name>
-   <url>http://jtreemap.sourceforge.net</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
-   <licenses>
-      <license>
-         <name>Apache License</name>
-      </license>
-   </licenses>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-   <description>JTreeMap built by Maven 2.</description>
+    <description>TreeMap Visualization for Java Swing</description>
 
-   <inceptionYear>2005</inceptionYear>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>http://github.com/captmorgan/jxtreemap/issues</url>
+    </issueManagement>
 
-   <issueManagement>
-      <url>http://www.sourceforge.net/tracker/?group_id=26527</url>
-   </issueManagement>
+    <scm>
+        <connection>scm:git:git@github.com:captmorgan/jxtreemap</connection>
+        <url>scm:git:git@github.com:captmorgan/jxtreemap</url>
 
+        <developerConnection>scm:git:git@github.com:captmorgan/jxtreemap</developerConnection>
+    </scm>
 
-   <scm>
-      <url>http://jtreemap.svn.sourceforge.net/viewvc/jtreemap/</url>
-      <connection>scm:svn:https://jtreemap.svn.sourceforge.net/svnroot/jtreemap/trunk</connection>
-      <developerConnection>
-         scm:svn:https://jtreemap.svn.sourceforge.net/svnroot/jtreemap/trunk
-      </developerConnection>
-   </scm>
-
-   <build>
-      <resources>
-         <resource>
-            <directory>src/conf</directory>
-            <includes>
-               <include>*.properties</include>
-               <include>**/*.gif</include>
-            </includes>
-            <filtering>false</filtering>
-         </resource>
-      </resources>
-      <testResources>
-         <testResource>
-            <directory>src/test/java</directory>
-            <includes>
-               <include>**/*.xml</include>
-            </includes>
-            <filtering>false</filtering>
-         </testResource>
-      </testResources>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-               <source>1.5</source>
-               <target>1.5</target>
-            </configuration>
-         </plugin>
-      </plugins>
-   </build>
-
-   <dependencies/>
-
-<!--
-   <distributionManagement>
-      <repository>
-         <id>sourceforge.net</id>
-         <name>SourceForge</name>
-         <url>scpexe://ssh.sourceforge.net/home/groups/q/qa/qalab/htdocs/m2-repo</url>
-      </repository>
-      <snapshotRepository>
-         <id>sourceforge.net</id>
-         <name>SourceForge</name>
-         <url>scpexe://ssh.sourceforge.net/home/groups/q/qa/qalab/htdocs/m2-repo</url>
-      </snapshotRepository>
-      <site>
-         <id>sourceforge.net</id>
-         <name>SourceForge</name>
-         <url>scpexe://ssh.sourceforge.net/home/groups/q/qa/qalab/htdocs</url>
-      </site>
-   </distributionManagement>
--->
-
-  <profiles>
-    <profile>
-      <id>release-profile</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-
-      <build>
+    <build>
         <plugins>
-          <plugin>
-            <inherited>true</inherited>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-
-          <plugin>
-            <inherited>true</inherited>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>attach-javadocs</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-
-          <plugin>
-            <inherited>true</inherited>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-deploy-plugin</artifactId>
-            <configuration>
-              <updateReleaseInfo>true</updateReleaseInfo>
-            </configuration>
-          </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
         </plugins>
-      </build>
-    </profile>
-  </profiles>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+        </dependency>
+    </dependencies>
+
+    <!--
+       <distributionManagement>
+          <repository>
+             <id>sourceforge.net</id>
+             <name>SourceForge</name>
+             <url>scpexe://ssh.sourceforge.net/home/groups/q/qa/qalab/htdocs/m2-repo</url>
+          </repository>
+          <snapshotRepository>
+             <id>sourceforge.net</id>
+             <name>SourceForge</name>
+             <url>scpexe://ssh.sourceforge.net/home/groups/q/qa/qalab/htdocs/m2-repo</url>
+          </snapshotRepository>
+          <site>
+             <id>sourceforge.net</id>
+             <name>SourceForge</name>
+             <url>scpexe://ssh.sourceforge.net/home/groups/q/qa/qalab/htdocs</url>
+          </site>
+       </distributionManagement>
+    -->
+
+    <profiles>
+        <profile>
+            <id>site</id>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>findbugs-maven-plugin</artifactId>
+                        <version>2.3.2</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-pmd-plugin</artifactId>
+                        <version>2.5</version>
+                        <configuration>
+                            <linkXRef>true</linkXRef>
+                            <sourceEncoding>utf-8</sourceEncoding>
+                            <minimumTokens>100</minimumTokens>
+                            <targetJdk>1.5</targetJdk>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+
+        <profile>
+            <id>release-profile</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <inherited>true</inherited>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <inherited>true</inherited>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <inherited>true</inherited>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <configuration>
+                            <updateReleaseInfo>true</updateReleaseInfo>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
