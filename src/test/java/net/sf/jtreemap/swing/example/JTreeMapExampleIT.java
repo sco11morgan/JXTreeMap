@@ -16,15 +16,15 @@
 
 package net.sf.jtreemap.swing.example;
 
-import net.sf.jtreemap.swing.JXTreeMap;
 import net.sf.jtreemap.swing.TreeMapNode;
+import org.fest.swing.edt.FailOnThreadViolationRepaintManager;
 import org.fest.swing.edt.GuiActionRunner;
 import org.fest.swing.edt.GuiQuery;
 import org.fest.swing.fixture.FrameFixture;
 import org.junit.After;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -34,6 +34,11 @@ import static org.hamcrest.Matchers.is;
 public class JTreeMapExampleIT {
 
     private FrameFixture window;
+
+    @BeforeClass
+    public static void setUpOnce() {
+        FailOnThreadViolationRepaintManager.install();
+    }
 
     @After
     public void teardown() throws Exception {
@@ -45,7 +50,7 @@ public class JTreeMapExampleIT {
     @Test
     public void testPerformance() throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(JTreeMapExampleIT.class.getResourceAsStream("/market.tm3")));
-        BuilderTM3 builder = new BuilderTM3(reader);
+        final BuilderTM3 builder = new BuilderTM3(reader);
 
         final TreeMapNode node = builder.getRoot();
         assertThat(builder.getRoot().getChildren().size(), is(4));
@@ -54,17 +59,21 @@ public class JTreeMapExampleIT {
         assertThat(builder.getRoot().getChildren().get(2).getLabel(), is("AU"));
         assertThat(builder.getRoot().getChildren().get(3).getLabel(), is("JP"));
 
-        JTreeMapExample frame = GuiActionRunner.execute(new GuiQuery<JTreeMapExample>() {
+        final JTreeMapExample frame = GuiActionRunner.execute(new GuiQuery<JTreeMapExample>() {
             protected JTreeMapExample executeInEDT() {
-                return new JTreeMapExample(node);
+                return new JTreeMapExample(builder);
             }
         });
         window = new FrameFixture(frame);
         window.show(); // shows the frame to tes
 
-
-        JPanel panel = new JPanel();
-        panel.add(new JXTreeMap(builder.getRoot()));
+//        GuiActionRunner.execute(new GuiTask() {
+//            @Override
+//            protected void executeInEDT() throws Throwable {
+////                frame.setWeight("Market Cap");
+//                frame.repaint();
+//            }
+//        });
     }
 
 }

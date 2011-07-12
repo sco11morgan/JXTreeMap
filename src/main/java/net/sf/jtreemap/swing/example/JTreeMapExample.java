@@ -32,13 +32,20 @@
  */
 package net.sf.jtreemap.swing.example;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
+import net.sf.jtreemap.swing.*;
+import net.sf.jtreemap.swing.provider.HSBTreeMapColorProvider;
+import net.sf.jtreemap.swing.provider.RandomColorProvider;
+import net.sf.jtreemap.swing.provider.RedGreenColorProvider;
+import net.sf.jtreemap.swing.provider.ZoomPopupMenu;
+
+import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.tree.DefaultTreeModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -47,34 +54,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.LinkedHashMap;
 import java.util.Locale;
-
-import javax.swing.BorderFactory;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JTree;
-import javax.swing.KeyStroke;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.tree.DefaultTreeModel;
-
-import net.sf.jtreemap.swing.*;
-import net.sf.jtreemap.swing.JXTreeMap;
-import net.sf.jtreemap.swing.provider.HSBTreeMapColorProvider;
-import net.sf.jtreemap.swing.provider.RandomColorProvider;
-import net.sf.jtreemap.swing.provider.RedGreenColorProvider;
-import net.sf.jtreemap.swing.provider.ZoomPopupMenu;
 
 /**
  * Test of JXTreeMap
@@ -133,6 +112,11 @@ public class JTreeMapExample extends JFrame implements ActionListener {
      */
     public JTreeMapExample() {
         this(DemoUtil.buildDemoRoot());
+    }
+
+    public JTreeMapExample(BuilderTM3 builder) {
+        this(DemoUtil.buildDemoRoot());
+        setTM3Builder(builder);
     }
 
     public JTreeMapExample(TreeMapNode root) {
@@ -222,17 +206,22 @@ public class JTreeMapExample extends JFrame implements ActionListener {
     public void setTm3File(final String path) {
         try {
             builderTM3 = new BuilderTM3(new File(path));
-            root = builderTM3.getRoot();
-
-            jTreeMap.setRoot(this.root);
-            treeModel.setRoot(this.root);
-
-            setTM3Fields();
-            panelTM3.setVisible(true);
+            setTM3Builder(builderTM3);
         } catch (final IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, e.getMessage(), "File error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    public void setTM3Builder(BuilderTM3 builder) {
+        builderTM3 = builder;
+        root = builderTM3.getRoot();
+
+        jTreeMap.setRoot(this.root);
+        treeModel.setRoot(this.root);
+
+        setTM3Fields();
+        panelTM3.setVisible(true);
     }
 
     /**
@@ -348,6 +337,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
         choicePanel.add(lblWeight, gridBagConstraints);
 
         cmbWeight = new JComboBox();
+        cmbWeight.setName("combo.weight");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -372,6 +362,7 @@ public class JTreeMapExample extends JFrame implements ActionListener {
         choicePanel.add(lblValue, gridBagConstraints);
 
         cmbValue = new JComboBox();
+        cmbValue.setName("combo.value");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -391,6 +382,19 @@ public class JTreeMapExample extends JFrame implements ActionListener {
         });
 
         panelTM3.setVisible(false);
+    }
+
+
+    public void setWeight(String value){
+        setCombo(cmbWeight, value);
+    }
+
+    public void setValue(String value){
+        setCombo(cmbValue, value);
+    }
+
+    private void setCombo(JComboBox combo, String value){
+        combo.setSelectedItem(value);
     }
 
     /**
