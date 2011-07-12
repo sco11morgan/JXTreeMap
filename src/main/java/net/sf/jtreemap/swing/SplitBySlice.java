@@ -32,23 +32,23 @@
  */
 package net.sf.jtreemap.swing;
 
-import java.util.Vector;
+import java.util.List;
 
 /**
  * Split the treemap by slice
- * 
+ *
  * @author Laurent DUTHEIL
  */
 public class SplitBySlice extends SplitStrategy {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 8484486418097321160L;
 
     /**
-     * Calculate the dimension of the elements of the Vector.
-     * 
+     * Calculate the dimension of the elements of the List.
+     *
      * @param x0
      *            x-coordinate
      * @param y0
@@ -62,7 +62,7 @@ public class SplitBySlice extends SplitStrategy {
      * @param sumWeight
      *            sum of the weights
      */
-    public static void splitInSlice(final int x0, final int y0, final int w0, final int h0, final Vector<TreeMapNode> v, final double sumWeight) {
+    public static void splitInSlice(final int x0, final int y0, final int w0, final int h0, final List<TreeMapNode> v, final double sumWeight) {
         int offset = 0;
         final boolean vertical = h0 > w0;
 
@@ -85,7 +85,7 @@ public class SplitBySlice extends SplitStrategy {
         // Because of the Math.round(), we adjust the last element to fit the
         // correctly the JXTreeMap
         if (!v.isEmpty()) {
-            final TreeMapNode node = v.lastElement();
+            final TreeMapNode node = v.get(v.size()-1);
             if (vertical && h0 != offset) {
                 node.setHeight(node.getHeight() - offset + h0);
             } else if (!vertical && w0 != offset) {
@@ -97,11 +97,11 @@ public class SplitBySlice extends SplitStrategy {
     /*
      * (non-Javadoc)
      * 
-     * @see net.sf.jtreemap.swing.SplitStrategy#splitElements(java.util.Vector,
-     *      java.util.Vector, java.util.Vector)
+     * @see net.sf.jtreemap.swing.SplitStrategy#splitElements(java.util.List,
+     *      java.util.List, java.util.List)
      */
     @Override
-    public void splitElements(final Vector<TreeMapNode> v, final Vector<TreeMapNode> v1, final Vector<TreeMapNode> v2) {
+    public void splitElements(final List<TreeMapNode> v, final List<TreeMapNode> v1, final List<TreeMapNode> v2) {
         // ignore
 
     }
@@ -110,10 +110,10 @@ public class SplitBySlice extends SplitStrategy {
      * (non-Javadoc)
      * 
      * @see net.sf.jtreemap.swing.SplitStrategy#calculatePositionsRec(int, int,
-     *      int, int, double, java.util.Vector)
+     *      int, int, double, java.util.List)
      */
     @Override
-    protected void calculatePositionsRec(final int x0, final int y0, final int w0, final int h0, final double weight0, final Vector<TreeMapNode> v) {
+    protected void calculatePositionsRec(final int x0, final int y0, final int w0, final int h0, final double weight0, final List<TreeMapNode> v) {
 
         // 1. don't calculate if the area is too small,
         if (w0 * h0 < 20) {

@@ -32,7 +32,8 @@
  */
 package net.sf.jtreemap.swing;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Strategy who split the elements in 2 groups of equivalent weight.
@@ -54,8 +55,8 @@ public class SplitBySortedWeight extends SplitStrategy {
     private static final long serialVersionUID = 1600419780258843122L;
 
     @Override
-    public void splitElements(final Vector<TreeMapNode> v, final Vector<TreeMapNode> v1, final Vector<TreeMapNode> v2) {
-        final Vector<TreeMapNode> vClone = new Vector<TreeMapNode>(v);
+    public void splitElements(final List<TreeMapNode> v, final List<TreeMapNode> v1, final List<TreeMapNode> v2) {
+        final List<TreeMapNode> vClone = new ArrayList<TreeMapNode>(v);
         final double sumWeight = sumWeight(v);
 
         sortVector(vClone);
