@@ -16,8 +16,11 @@
 
 package net.sf.jtreemap.swing.example;
 
+import net.sf.jtreemap.swing.JXTreeMap;
+import net.sf.jtreemap.swing.TreeMapNode;
 import org.junit.Test;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 

@@ -132,7 +132,11 @@ public class JTreeMapExample extends JFrame implements ActionListener {
      * Constructor
      */
     public JTreeMapExample() {
-        root = DemoUtil.buildDemoRoot();
+        this(DemoUtil.buildDemoRoot());
+    }
+
+    public JTreeMapExample(TreeMapNode root) {
+        this.root = root;
 
         jTreeMap = new JXTreeMap(this.root, treeView);
         jTreeMap.setFont(new Font(null, Font.BOLD, DEFAULT_FONT_SIZE));
